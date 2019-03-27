@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c1de61e39cb5d488fe0684e723aceb, type: 3}
+  m_Name: Brush1
+  m_EditorClassIdentifier: 
+  Tileset: {fileID: 11400000, guid: 4e54a0015966d8e43b65bd88992532d4, type: 2}
+  Params:
+    m_paramList: []
+  m_group: 0
+  m_autotilingMode: 1
+  m_showInPalette: 1
+  TileIds: 2100000021000000210000002800000021000000210000001800000020000000210000002a00000021000000290000001a000000220000001900000021000000
+  InteriorCornerTileIds: 2b0000002c0000002300000024000000

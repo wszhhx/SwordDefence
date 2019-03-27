@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5656c5e200a31c945b469abda4211525, type: 3}
+  m_Name: Brush2
+  m_EditorClassIdentifier: 
+  Tileset: {fileID: 11400000, guid: 4e54a0015966d8e43b65bd88992532d4, type: 2}
+  Params:
+    m_paramList: []
+  m_group: 0
+  m_autotilingMode: 1
+  m_showInPalette: 1
+  RandomTiles: 
+  RandomTileList:
+  - tileData: 29
+    probabilityFactor: 1
+  - tileData: 31
+    probabilityFactor: 0.166
+  - tileData: 38
+    probabilityFactor: 0.139
+  - tileData: 30
+    probabilityFactor: 0.037
+  - tileData: 37
+    probabilityFactor: 0.015
+  - tileData: 39
+    probabilityFactor: 0.032
+  - tileData: 1073741871
+    probabilityFactor: 0.054
+  RandomizeFlagMask: 0
+  RemoveBrushIdAfterRefresh: 0

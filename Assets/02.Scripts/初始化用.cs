@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class 初始化用 : MonoBehaviour {
+    
+    // Use this for initialization
 
-	// Use this for initialization
-	void Start () {
+
+    void Start () {
         Debug.Log("TEST");
 	}
 	
