@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//创建日期：2019/3/27
+//修改日期：2019/3/27
+//版本：    v0.01
+//说明：    控制摄像机行为
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

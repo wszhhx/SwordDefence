@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets._02.Scripts
 {
@@ -55,6 +56,9 @@ namespace Assets._02.Scripts
             }
         }
         public int EXP { get; set; }
+
+        public Vector3 position;
+        public Weapon equipedWeapon;
 
         public PlayerCore(float spd, int mp, float atn, float hit)
         {

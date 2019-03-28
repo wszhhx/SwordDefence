@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour {
     public float hit = 0.6f;
     public float spd = 8f;
     public int mp = 20;
+    private float preShootTime = 0f;
 
     private Vector2 moveDir;
     private Vector3 mouseWorldPos;
@@ -29,12 +30,13 @@ public class PlayerControl : MonoBehaviour {
     private void Awake()
     {
         playerCore = new PlayerCore(spd, mp, atn, hit);
+        playerCore.equipedWeapon = new Weapon();
         moveDir = Vector2.zero;
         rigidbody = GetComponent<Rigidbody2D>();
     }
     void Start () {
         
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -45,8 +47,9 @@ public class PlayerControl : MonoBehaviour {
             GetComponent<SpriteRenderer>().flipX = false;
         rigidbody.velocity = playerCore.SPD * moveDir;
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && (Time.time - preShootTime) > (1 / playerCore.equipedWeapon.ATS))
         {
+            preShootTime = Time.time;
             GameObject bullet = Instantiate(bulletSword,transform.position,new Quaternion());
             mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0.0f;
