@@ -1,5 +1,4 @@
 ﻿//创建日期：2019/3/28
-//修改日期：2019/3/28
 //版本：    v0.01
 //说明：    控制敌人的行为
 
@@ -12,17 +11,19 @@ using Assets._02.Scripts;
 public class EnemyControl : MonoBehaviour {
     public EnemyCore enemyCore;
     public Image bloodBar;
-    public int pathFLag;
-    public GameObject[] pathPoints;
+    public int pathFlag;
+    public GameObject pathContain;
+    private Transform[] pathPoints;
 
     public Rigidbody2D myRigidbody;
 
     private void Awake()
     {
         enemyCore = new EnemyCore();  //测试阶段预先固定敌人属性
-        pathPoints = GameObject.FindGameObjectsWithTag("PathPoint");
-        
-        pathFLag = 8;
+        pathPoints = pathContain.GetComponentsInChildren<Transform>();
+        pathFlag = 1;
+        for (int i = 0; i < pathPoints.Length; ++i)
+            Debug.Log(pathPoints[i].name);
     }
     void Start () {
 	
@@ -72,17 +73,21 @@ public class EnemyControl : MonoBehaviour {
                 bulletControler.ToDestroy();
             }
         }
-        
-        Debug.Log(pathPoints[pathFLag].name);
-        if((pathPoints[pathFLag].transform.position - transform.position).magnitude < 0.1f)  //抵达路径点
+
+        Debug.Log(pathFlag);
+        if((pathPoints[pathFlag].position - transform.position).magnitude < 0.1f)  //抵达路径点
         {
-            Debug.Log("抵达路径点");
-            pathFLag--;
-            Vector3 forward = (pathPoints[pathFLag].transform.position - transform.position).normalized;
-            myRigidbody.velocity = forward * enemyCore.SPD;
-            
+            pathFlag++;
+            if (pathFlag >= pathPoints.Length)   //若敌人成功到达最后一个路径点则消失
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Vector3 forward = (pathPoints[pathFlag].position - transform.position).normalized;
+                myRigidbody.velocity = forward * enemyCore.SPD;
+            }
         }
-        if (pathFLag < 1)
-            Destroy(gameObject);
+        
     }
 }

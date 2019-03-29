@@ -1,5 +1,4 @@
 ﻿//创建日期：2019/3/27
-//修改日期：2019/3/27
 //版本：    v0.01
 //说明：    角色的内核类，记录角色状态、属性
 
@@ -18,7 +17,7 @@ namespace Assets._02.Scripts
         private int _mp;
         
 
-        private int level;
+        private int _level;
         private int[] maxExp;
 
         public float ATN { get; set; }
@@ -56,8 +55,15 @@ namespace Assets._02.Scripts
             }
         }
         public int EXP { get; set; }
+        public int LEVEL
+        {
+            get
+            {
+                return _level;
+            }
+        }
 
-        public Vector3 position;
+        public myVector3 position;
         public Weapon equipedWeapon;
 
         public PlayerCore(float spd, int mp, float atn, float hit)
@@ -66,7 +72,7 @@ namespace Assets._02.Scripts
             _mp = mp;
             ATN = atn;
             HIT = hit;
-            level = 1;
+            _level = 1;
             EXP = 0;
             maxExp = new int[21];
             for(int i=1; i<=20; ++i)

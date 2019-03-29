@@ -1,0 +1,29 @@
+﻿//创建日期：2019/3/29
+//版本：    v0.01
+//说明：    记录公用的静态数据及数据类型
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Assets._02.Scripts
+{
+    public struct myVector3
+    {
+        public float x;
+        public float y;
+        public float z;
+        public myVector3(float _x, float _y, float _z)
+        {
+            x = _x;
+            y = _y;
+            z = _z;
+        }
+    }
+
+    static public class PublicData
+    {
+         
+    }
+}

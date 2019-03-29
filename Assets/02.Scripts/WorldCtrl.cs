@@ -1,5 +1,4 @@
 ﻿//创建日期：2019/3/28
-//修改日期：2019/3/28
 //版本：    v0.01
 //说明：    承载内核world，负责world与外壳交互数据
 
@@ -40,8 +39,9 @@ public class WorldCtrl : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.0f);
             Instantiate(enemy01, spawnPoint.position, new Quaternion());
+            yield return new WaitForSeconds(30.0f);
+            
         }
     }
 
