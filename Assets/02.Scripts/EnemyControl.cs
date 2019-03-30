@@ -22,8 +22,6 @@ public class EnemyControl : MonoBehaviour {
         enemyCore = new EnemyCore();  //测试阶段预先固定敌人属性
         pathPoints = pathContain.GetComponentsInChildren<Transform>();
         pathFlag = 1;
-        for (int i = 0; i < pathPoints.Length; ++i)
-            Debug.Log(pathPoints[i].name);
     }
     void Start () {
 	
@@ -74,7 +72,6 @@ public class EnemyControl : MonoBehaviour {
             }
         }
 
-        Debug.Log(pathFlag);
         if((pathPoints[pathFlag].position - transform.position).magnitude < 0.1f)  //抵达路径点
         {
             pathFlag++;

@@ -52,7 +52,7 @@ namespace Assets._02.Scripts
             }
         }
 
-        public Vector3 position;
+        public myVector3 position;
 
         public EnemyCore()
         {

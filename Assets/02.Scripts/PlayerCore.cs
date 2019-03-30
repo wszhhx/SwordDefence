@@ -86,6 +86,12 @@ namespace Assets._02.Scripts
 
         }
 
+        public bool equipWeapon(Weapon weapon)  //暂不设等级或属性限制
+        {
+            equipedWeapon = weapon;
+            return true;
+        }
+
         private void RefreshAttr()  //使用属性成长函数计算最新人物基本属性值
         {
 

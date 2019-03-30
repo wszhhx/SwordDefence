@@ -10,10 +10,12 @@ using UnityEngine;
 
 namespace Assets._02.Scripts
 {
+    [Serializable]
     public class BulletCore
     {
         public Weapon belongWeapon;
-        public Vector3 position;
+        public myVector3 position;
+        public myVector3 velocity;
 
         public BulletCore()
         {

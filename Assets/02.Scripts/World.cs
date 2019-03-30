@@ -14,15 +14,24 @@ namespace Assets._02.Scripts
     {
         private static World _world = null;
         public PlayerCore player;
+
         public float gameTime = 0;              //游戏时间（秒）
         public float turnTime = 0;              //当前波进行时间
+        public float preSpawnTime = 0;          //上一个敌人刷新的时间节点
+        public float restTimeStamp = 0;
         public int turnCount = 0;               //波数记录
         public int spawnEnemyCount = 0;         //记录已经生成的敌人数
-        public int[] eachTurnEnemyCount;        //每波敌人的数量（只读）
+
+        public TurnState turnState = TurnState.spawning;               //记录当前波进行状态
+        public GameState gameState = GameState.resume;                 //记录当前游戏状态
+
         public Vector3 camPosition;             //记录摄像机位置
 
 
+        public World()                          //这里负责查找/建立存档文件并还原游戏所有状态
+        {
 
+        }
         public static World GetInstance()
         {
             if(_world == null)

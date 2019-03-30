@@ -22,6 +22,16 @@ namespace Assets._02.Scripts
         }
     }
 
+    [Serializable]
+    public struct Turn
+    {
+        public UnityEngine.GameObject enemy;
+        public int enemyCount;
+        public float restTime;
+    }
+
+    public enum GameState { resume = 0, pause };
+    public enum TurnState { spawning = 0, rest};
     static public class PublicData
     {
          

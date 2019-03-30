@@ -38,7 +38,7 @@ public class PlayerControl : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         if (moveDir.x < 0)
             GetComponent<SpriteRenderer>().flipX = true;
