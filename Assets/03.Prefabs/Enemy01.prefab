@@ -227,8 +227,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodBar: {fileID: 114203127238412092}
-  pathFlag: 0
+  pathFlag: 1
   pathContain: {fileID: 1355453554983972, guid: 6fcd5fd0f106eeb4fbaac31877654bfb,
+    type: 2}
+  worldCtrl: {fileID: 114539009780419878, guid: f41110040b432a040a9674458b6d5e50,
     type: 2}
   myRigidbody: {fileID: 50849898938676884}
 --- !u!114 &114633822677871156

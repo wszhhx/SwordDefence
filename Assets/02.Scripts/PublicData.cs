@@ -32,6 +32,9 @@ namespace Assets._02.Scripts
 
     public enum GameState { resume = 0, pause };
     public enum TurnState { spawning = 0, rest};
+
+    public delegate void VoidVoid();
+
     static public class PublicData
     {
          

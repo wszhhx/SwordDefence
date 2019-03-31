@@ -22,6 +22,10 @@ namespace Assets._02.Scripts
         public int turnCount = 0;               //波数记录
         public int spawnEnemyCount = 0;         //记录已经生成的敌人数
 
+        public int money = 0;                   //金钱
+        public int ore = 0;                     //矿石
+        public int wood = 0;                    //木头
+
         public TurnState turnState = TurnState.spawning;               //记录当前波进行状态
         public GameState gameState = GameState.resume;                 //记录当前游戏状态
 

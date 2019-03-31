@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour {
     private void Awake()
     {
         playerCore = new PlayerCore(spd, mp, atn, hit);
-        playerCore.equipedWeapon = new Weapon();
+        playerCore.equipWeapon(new Weapon());
         moveDir = Vector2.zero;
         rigidbody = GetComponent<Rigidbody2D>();
     }

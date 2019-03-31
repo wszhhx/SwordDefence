@@ -21,5 +21,9 @@ namespace Assets._02.Scripts
         {
             belongWeapon = new Weapon();
         }
+        public BulletCore(Weapon w)
+        {
+            belongWeapon = w;
+        }
     }
 }

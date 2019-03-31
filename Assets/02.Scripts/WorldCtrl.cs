@@ -12,11 +12,16 @@ public class WorldCtrl : MonoBehaviour {
     World world;
 
     public Text txCountDown;
+    public Text showMoney;
+    public Text showOre;
+    public Text showWood;
+
     public GameObject enemy01;
 
     public PlayerControl playerControler;
     public Transform spawnPoint;
     public Turn[] TurnInfoSet;
+
 
     public float spawnInterval = 1.0f;
 
@@ -30,6 +35,9 @@ public class WorldCtrl : MonoBehaviour {
     {
         world = World.GetInstance();
         StartCoroutine(SynCore());
+        showMoney.text = world.money.ToString();
+        showWood.text = world.wood.ToString();
+        showOre.text = world.ore.ToString();
         //StartCoroutine(SpawnEnemy());
     }
     void Start () {
@@ -64,6 +72,12 @@ public class WorldCtrl : MonoBehaviour {
 
     }
 
+    public void EnemyDie(EnemyCore enemy)     //敌人死亡
+    {
+        world.money += enemy.MONEY;
+        showMoney.text = world.money.ToString();
+    }
+
     void TurnFinish()   //当前波数完毕
     {
         world.turnState = TurnState.rest;
@@ -76,10 +90,12 @@ public class WorldCtrl : MonoBehaviour {
         world.turnCount += 1;
         txCountDown.gameObject.SetActive(false);
         world.turnState = TurnState.spawning;
+        world.spawnEnemyCount = 0;
     }
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        Debug.Log(TurnInfoSet[world.turnCount].enemyCount);
         if(world.gameState == GameState.resume)
         {
             if(world.turnState == TurnState.spawning)   //若当前波敌人还在刷新进攻

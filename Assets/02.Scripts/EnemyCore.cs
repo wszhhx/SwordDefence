@@ -16,6 +16,7 @@ namespace Assets._02.Scripts
         private float _maxhealth;
         private float _health;
         private float _speed;
+        private int _money;
         public float ATK
         {
             get
@@ -51,7 +52,13 @@ namespace Assets._02.Scripts
                 return _maxhealth;
             }
         }
-
+        public int MONEY
+        {
+            get
+            {
+                return _money;
+            }
+        }
         public myVector3 position;
 
         public EnemyCore()
@@ -61,11 +68,11 @@ namespace Assets._02.Scripts
             _health = 100.0f;
             _maxhealth = 100.0f;
             _speed = 4.0f;
+            _money = 10;
         }
 
         public bool BloodDeduction(float hp)
         {
-            UnityEngine.Debug.Log(hp);
             _health -= hp;
             if (_health <= 0)
                 return true;

@@ -13,6 +13,8 @@ public class EnemyControl : MonoBehaviour {
     public Image bloodBar;
     public int pathFlag;
     public GameObject pathContain;
+
+    public WorldCtrl worldCtrl;
     private Transform[] pathPoints;
 
     public Rigidbody2D myRigidbody;
@@ -24,7 +26,7 @@ public class EnemyControl : MonoBehaviour {
         pathFlag = 1;
     }
     void Start () {
-	
+        worldCtrl = GameObject.Find("WorldCtrl").GetComponent<WorldCtrl>();
 	}
 	
     void GetHit(float dmg)          //公式：实际扣血 = 角色攻击力 x [ 10 / (10 + 怪物防御) ]
@@ -33,7 +35,7 @@ public class EnemyControl : MonoBehaviour {
         if(enemyCore.BloodDeduction(dmg * (10 / (10 + enemyCore.DEF))))
         {
             DeadProcess();
-            Destroy(gameObject);
+            
         }
         else
         {
@@ -43,7 +45,8 @@ public class EnemyControl : MonoBehaviour {
 
     void DeadProcess()              //这里进行怪物死亡后进行奖励等死亡处理
     {
-
+        worldCtrl.EnemyDie(enemyCore);
+        Destroy(gameObject);
     }
 
     //private void OnTriggerStay2D(Collider2D collision)
@@ -71,9 +74,9 @@ public class EnemyControl : MonoBehaviour {
                 bulletControler.ToDestroy();
             }
         }
-
-        if((pathPoints[pathFlag].position - transform.position).magnitude < 0.1f)  //抵达路径点
+        if ((pathPoints[pathFlag].position - transform.position).magnitude < 0.1f)  //抵达路径点
         {
+            
             pathFlag++;
             if (pathFlag >= pathPoints.Length)   //若敌人成功到达最后一个路径点则消失
             {

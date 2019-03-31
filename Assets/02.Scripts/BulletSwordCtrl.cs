@@ -15,7 +15,7 @@ public class BulletSwordCtrl : MonoBehaviour {
     // Use this for initialization
     private void Awake()
     {
-        bulletCore = new BulletCore();
+        bulletCore = new BulletCore(new Weapon());
         launchTime = Time.time;
     }
 
