@@ -9,6 +9,7 @@ using System.Text;
 
 namespace Assets._02.Scripts
 {
+    [Serializable]
     public struct myVector3
     {
         public float x;
@@ -30,8 +31,24 @@ namespace Assets._02.Scripts
         public float restTime;
     }
 
+    [Serializable]
+    public struct Resource
+    {
+        public int money;
+        public int wood;
+        public int ore;
+        public Resource(int m, int w, int o)
+        {
+            money = m;
+            wood = w;
+            ore = o;
+        }
+    }
+
     public enum GameState { resume = 0, pause };
-    public enum TurnState { spawning = 0, rest};
+    public enum TurnState { spawning = 0, rest };
+    public enum towerState { building = 0, exist, attack };
+    public enum towerAtkOption {distance = 0,health };
 
     public delegate void VoidVoid();
 

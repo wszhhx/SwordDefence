@@ -22,6 +22,7 @@ namespace Assets._02.Scripts
         public int turnCount = 0;               //波数记录
         public int spawnEnemyCount = 0;         //记录已经生成的敌人数
 
+        public Resource resource;
         public int money = 0;                   //金钱
         public int ore = 0;                     //矿石
         public int wood = 0;                    //木头

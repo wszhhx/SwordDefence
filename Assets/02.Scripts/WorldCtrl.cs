@@ -95,7 +95,6 @@ public class WorldCtrl : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-        Debug.Log(TurnInfoSet[world.turnCount].enemyCount);
         if(world.gameState == GameState.resume)
         {
             if(world.turnState == TurnState.spawning)   //若当前波敌人还在刷新进攻

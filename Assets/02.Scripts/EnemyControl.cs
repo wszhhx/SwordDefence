@@ -29,7 +29,7 @@ public class EnemyControl : MonoBehaviour {
         worldCtrl = GameObject.Find("WorldCtrl").GetComponent<WorldCtrl>();
 	}
 	
-    void GetHit(float dmg)          //公式：实际扣血 = 角色攻击力 x [ 10 / (10 + 怪物防御) ]
+    public void GetHit(float dmg)          //公式：实际扣血 = 角色攻击力 x [ 10 / (10 + 怪物防御) ]
     {
 
         if(enemyCore.BloodDeduction(dmg * (10 / (10 + enemyCore.DEF))))
