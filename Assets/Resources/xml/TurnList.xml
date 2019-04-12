@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<turns>
+    <turn count = "1" spawntime = "10" resttime = "10">
+        <enemy id = "001" amount = "5"  pref = "01"/>
+    </turn>
+    <turn count = "2" spawntime = "15" resttime = "15">
+        <enemy id = "002" amount = "6"  pref = "01"/>
+        <enemy id  ="001" amount = "4"  pref = "02"/>
+    </turn>
+    <turn count = "3" spawntime = "20" resttime = "15">
+        <enemy id = "002" amount = "10"  pref = "02"/>
+    </turn>
+    <turn count = "4" spawntime = "18" resttime = "15">
+        <enemy id = "003" amount = "7"  pref = "02"/>
+    </turn>
+    <turn count = "5" spawntime = "25" resttime = "20">
+        <enemy id = "001" amount = "12"  pref = "01"/>
+        <enemy id = "002" amount = "8"  pref = "01"/>
+        <enemy id = "003" amount = "5"  pref = "02"/>
+        <enemy id = "004" amount = "3"  pref = "02"/>
+    </turn>
+</turns>

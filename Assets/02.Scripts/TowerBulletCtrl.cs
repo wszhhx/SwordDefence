@@ -16,9 +16,7 @@ public class TowerBulletCtrl : MonoBehaviour {
     private void Awake()
     {
         spawnTime = Time.time;
-        Debug.Log("生成bulletCore");
         bulletCore = new TowerBulletCore();
-        Debug.Log(bulletCore);
     }
 
     public void Aim(GameObject aim,float spd)
@@ -51,8 +49,6 @@ public class TowerBulletCtrl : MonoBehaviour {
         }
         if((aimEnemy.transform.position - transform.position).magnitude < 0.1)
         {
-            
-            Debug.Log(bulletCore);
             aimEnemy.GetComponent<EnemyControl>().GetHit(bulletCore.belongTower.ATK);
             Destroy(gameObject);
             bulletCore = null;

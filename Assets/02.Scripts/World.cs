@@ -17,9 +17,11 @@ namespace Assets._02.Scripts
 
         public float gameTime = 0;              //游戏时间（秒）
         public float turnTime = 0;              //当前波进行时间
-        public float preSpawnTime = 0;          //上一个敌人刷新的时间节点
+        public List<float> preSpawnTime;          //上一个敌人刷新的时间节点
+        public float spawnBeginTime;
+        public List<float> spawnInterval;
         public float restTimeStamp = 0;
-        public int turnCount = 0;               //波数记录
+        public int turnCount = -1;               //波数记录
         public int spawnEnemyCount = 0;         //记录已经生成的敌人数
 
         public Resource resource;

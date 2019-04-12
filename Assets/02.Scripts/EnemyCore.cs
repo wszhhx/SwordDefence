@@ -7,31 +7,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using System.Xml;
+
 namespace Assets._02.Scripts
 {
-    public class EnemyCore
+    public class EnemyCore:ICloneable
     {
-        private float _atk;
-        private float _def;
-        private float _maxhealth;
-        private float _health;
+        private int _atk;
+        private int _def;
+        private int _maxhealth;
+        private int _health;
         private float _speed;
         private int _money;
-        public float ATK
+        public int ATK
         {
             get
             {
                 return _atk;
             }
         }
-        public float DEF
+        public int DEF
         {
             get
             {
                 return _def;
             }
         }
-        public float HP
+        public int HP
         {
             get
             {
@@ -45,7 +47,7 @@ namespace Assets._02.Scripts
                 return _speed;
             }
         }
-        public float MAXHP
+        public int MAXHP
         {
             get
             {
@@ -61,23 +63,37 @@ namespace Assets._02.Scripts
         }
         public myVector3 position;
 
-        public EnemyCore()
+        public EnemyCore(int id)
         {
-            _atk = 12.0f;
-            _def = 5.0f;
-            _health = 100.0f;
-            _maxhealth = 100.0f;
-            _speed = 4.0f;
-            _money = 10;
+            Debug.Log(id);
+            string xmlString = Resources.Load("xml/EnemyList").ToString();
+            string xPath = string.Format("./enemy[@id='{0:D3}']", id);
+            XmlDocument document = new XmlDocument();
+            document.LoadXml(xmlString);
+            XmlNode root = document.SelectSingleNode("enemies");
+            XmlNode aimNode = root.SelectSingleNode(xPath);
+
+
+            _atk = int.Parse(aimNode.Attributes["atk"].Value);
+            _def = int.Parse(aimNode.Attributes["def"].Value);
+            _maxhealth = int.Parse(aimNode.Attributes["hp"].Value);
+            _health = _maxhealth;
+            _speed = float.Parse(aimNode.Attributes["spd"].Value);
+            _money = int.Parse(aimNode.Attributes["money"].Value);
         }
 
         public bool BloodDeduction(float hp)
         {
-            _health -= hp;
+            _health -= (int)hp;
             if (_health <= 0)
                 return true;
             else
                 return false;
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

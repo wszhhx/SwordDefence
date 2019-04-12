@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<enemies>
+    <enemy id = "001" hp = "20" atk = "8" def = "18" spd = "4" money = "10"/>
+    <enemy id = "002" hp = "25" atk = "9" def = "3" spd = "5" money = "12"/>
+    <enemy id = "003" hp = "30" atk = "8" def = "8" spd = "6" money = "12"/>
+    <enemy id = "004" hp = "28" atk = "6" def = "12" spd = "4" money = "10"/>
+    <enemy id = "005" hp = "25" atk = "8" def = "18" spd = "1" money = "15"/>
+</enemies>

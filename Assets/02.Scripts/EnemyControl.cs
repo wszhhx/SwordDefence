@@ -21,7 +21,7 @@ public class EnemyControl : MonoBehaviour {
 
     private void Awake()
     {
-        enemyCore = new EnemyCore();  //测试阶段预先固定敌人属性
+        //enemyCore = new EnemyCore();  //测试阶段预先固定敌人属性
         pathPoints = pathContain.GetComponentsInChildren<Transform>();
         pathFlag = 1;
     }
@@ -29,17 +29,22 @@ public class EnemyControl : MonoBehaviour {
         worldCtrl = GameObject.Find("WorldCtrl").GetComponent<WorldCtrl>();
 	}
 	
+    public void BindCore(EnemyCore core)
+    {
+        enemyCore = core;
+    }
+
     public void GetHit(float dmg)          //公式：实际扣血 = 角色攻击力 x [ 10 / (10 + 怪物防御) ]
     {
-
-        if(enemyCore.BloodDeduction(dmg * (10 / (10 + enemyCore.DEF))))
+        Debug.Log(dmg * (10f / (10 + enemyCore.DEF)));
+        if (enemyCore.BloodDeduction(dmg * (10f / (10 + enemyCore.DEF))))
         {
             DeadProcess();
             
         }
         else
         {
-            bloodBar.fillAmount = enemyCore.HP / enemyCore.MAXHP;
+            bloodBar.fillAmount = (float)enemyCore.HP / enemyCore.MAXHP;
         }
     }
 
